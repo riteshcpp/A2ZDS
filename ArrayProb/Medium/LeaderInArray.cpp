@@ -39,6 +39,22 @@ std::vector<int> leaders(std::vector<int> &nums)
     return res;
 }
 
+// Optimized approach: Instead of reversing the array, we can iterate from the end of the array and keep track of the maximum element seen so far. If the current element is greater than the maximum element, it is a leader and we update the maximum element.
+// Time complexity: O(n) and Space complexity: O(n)
+std::vector<int> leaders(std::vector<int> &nums)
+{
+    std::vector<int> res;
+    int max = INT_MIN;
+    for (int i = nums.size() - 1; i >= 0; --i) {
+        if (nums[i] > max) {
+            res.push_back(nums[i]);
+            max = nums[i];
+        }
+    }
+    std::reverse(res.begin(), res.end());
+    return res;
+}
+
 int main()
 {
     std::vector<int> nums = {1, 2, 5, 3, 1, 2}; // Expected output: [5, 3, 2]

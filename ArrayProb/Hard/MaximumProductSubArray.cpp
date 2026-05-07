@@ -41,18 +41,18 @@ The product of any subarray of nums is guaranteed to fit in a 32-bit integer.*
 // Time Complexity: O(n) as we traverse the array once.
 // Space Complexity: O(1) as we use only constant extra space.
 int maxProduct(std::vector<int>& nums) {
-    int pf = 1, sf = 1, res = INT_MIN;
+    int prefixProduct = 1, suffixProduct = 1, result = INT_MIN;
     int n = nums.size();
     for (int i = 0; i < n; ++i) {
-        if (pf == 0) pf = 1;
-        if (sf == 0) sf = 1;
+        if (prefixProduct == 0) prefixProduct = 1;
+        if (suffixProduct == 0) suffixProduct = 1;
 
-        pf *= nums[i];
-        sf *= nums[n - i - 1];
+        prefixProduct *= nums[i];
+        suffixProduct *= nums[n - i - 1];
 
-        res = std::max(res, std::max(pf, sf));
+        result = std::max(result, std::max(prefixProduct, suffixProduct));
     }
-    return res;
+    return result;
 }
 
 int main() {
