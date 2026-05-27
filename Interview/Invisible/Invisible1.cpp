@@ -1,3 +1,17 @@
+/*
+Problem: Frequency-Based Character Ordering
+Write a C++20 program to process a string S. The program must output the frequency of each unique non-space character, sorted primarily by frequency in descending order. In cases where frequencies are equal, characters must be sorted alphabetically.
+Sample Input:"hello world"
+Sample Output:
+l  3
+o  2
+d  1
+e  1
+h  1
+r  1
+w  1
+*/
+
 #include <iostream>
 #include <unordered_map>
 #include <vector>
